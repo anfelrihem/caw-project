@@ -1,35 +1,46 @@
 .card {
-  border: 1px solid #ddd;
-  padding: 15px;
-  border-radius: 8px;
-  margin: 10px;
+  border: 1px solid #fbcfe8;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 15px;
+  background-color: #fff0f6; /* وردي فاتح */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
 }
 
 .title {
-  font-size: 18px;
+  font-size: 1.5rem;
   font-weight: bold;
+  margin-bottom: 10px;
+  color: #d946ef;
 }
 
 .desc {
-  margin: 10px 0;
+  margin-bottom: 10px;
+  color: #9333ea;
 }
 
 .tech {
-  background-color: #2563eb;
+  display: inline-block;
+  background-color: #f472b6;
   color: white;
-  padding: 3px 6px;
-  border-radius: 4px;
-  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  margin-bottom: 10px;
 }
 
-.link {
-  display: inline-block;
-  margin-top: 10px;
-  color: #2563eb;
+.links a {
+  margin-right: 15px;
+  color: #d946ef;
   text-decoration: none;
+  font-weight: bold;
 }
-@media (max-width: 768px) {
-  .home {
-    padding: 20px;
-  }
+
+.links a:hover {
+  text-decoration: underline;
 }
