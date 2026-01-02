@@ -200,12 +200,10 @@ const skills = [
         <a href={item.link} target="_blank" rel="noopener noreferrer">{item.text}</a>
       </p>
     ))}
-    <button
-      className={styles.sendBtn}
-      onClick={() => scrollTo(contactRef)}
-    >
-      {language === "en" ? "Send Message" : "Envoyer un message"}
-    </button>
+    <button className={styles.sendBtn} onClick={() => navigate("/Contact")} > {language === "en" ? "Send Message" : "Envoyer un message"} </button>
+    
+      
+
   </div>
 </section>
 
