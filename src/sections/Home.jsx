@@ -1,17 +1,19 @@
 import { useRef, useEffect, useState } from "react";
 import styles from "./Home.module.css";
-import profilePic from "../assets/profile.jpg";
+import profilePic from "../assets/p.jpg";
 import { FaLinkedin, FaInstagram, FaFacebook, FaPhone } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import Projects from "./Projects"; 
 import { useNavigate } from "react-router-dom";
-// import Projects component
+
 
 function Home() {
   const homeRef = useRef(null);
   const projectsRef = useRef(null);
   const skillsRef = useRef(null);
   const contactRef = useRef(null);
+
+
 const navigate = useNavigate();
 
   const [homeVisible, setHomeVisible] = useState(false);
@@ -42,14 +44,39 @@ const navigate = useNavigate();
     },
   };
 
-  const skills = [
-    { category: "Programming Languages", items: ["JavaScript", "Python", "PHP", "Java", "C++", "HTML", "CSS"] },
-    { category: "Frameworks & Libraries", items: ["React.js", "Laravel", "Bootstrap", "Tailwind CSS"] },
-    { category: "AI & Data Science Tools", items: ["Jupyter Notebook", "Anaconda", "TensorFlow (Basics)", "Scikit-learn", "Pandas", "NumPy"] },
-    { category: "Design & Prototyping", items: ["Canva", "Figma", "UI/UX Design"] },
-    { category: "Development Tools", items: ["Git", "GitHub", "VS Code", "Postman", "XAMPP", "phpMyAdmin"] },
-    { category: "Databases", items: ["MySQL", "SQLite"] },
-  ];
+const skills = [
+  { 
+    category: "Programming Languages", 
+    categoryFR: "Langages de programmation",
+    items: ["JavaScript", "Python", "PHP", "Java", "C++", "HTML", "CSS"] 
+  },
+  { 
+    category: "Frameworks & Libraries", 
+    categoryFR: "Frameworks & Bibliothèques",
+    items: ["React.js", "Laravel", "Bootstrap", "Tailwind CSS"] 
+  },
+  { 
+    category: "AI & Data Science Tools", 
+    categoryFR: "Outils d'IA et Data Science",
+    items: ["Jupyter Notebook", "Anaconda", "TensorFlow (Basics)", "Scikit-learn", "Pandas", "NumPy"] 
+  },
+  { 
+    category: "Design & Prototyping", 
+    categoryFR: "Design & Prototypage",
+    items: ["Canva", "Figma", "UI/UX Design"] 
+  },
+  { 
+    category: "Development Tools", 
+    categoryFR: "Outils de développement",
+    items: ["Git", "GitHub", "VS Code", "Postman", "XAMPP", "phpMyAdmin"] 
+  },
+  { 
+    category: "Databases", 
+    categoryFR: "Bases de données",
+    items: ["MySQL", "SQLite"] 
+  },
+];
+
 
   useEffect(() => {
     const options = { threshold: 0.2 };
@@ -78,7 +105,7 @@ const navigate = useNavigate();
 
   return (
     <div className={`${darkMode ? styles.dark : ""}`}>
-      {/* Top Controls */}
+    
       <div className={styles.topControls}>
         <button className={styles.iconBtn} onClick={() => setDarkMode(!darkMode)}>
           {darkMode ? "☀️" : "🌙"}
@@ -98,7 +125,16 @@ const navigate = useNavigate();
         <p onClick={() => scrollTo(projectsRef)}>📁 {text[language].projects}</p>
         <p onClick={() => scrollTo(skillsRef)}>🛠 {text[language].skills}</p>
         <p onClick={() => scrollTo(contactRef)}>📞 {text[language].contact}</p>
-        <p>👩‍💻 {text[language].about}</p>
+  <p
+  onClick={() => {
+    navigate("/about");
+    setSidebarOpen(false);
+  }}
+>
+  👩‍💻 {text[language].about}
+</p>
+
+
       </div>
 
       {/* Home Section */}
@@ -116,48 +152,63 @@ const navigate = useNavigate();
 
       {/* Projects Section */}
       <section ref={projectsRef}>
-        <Projects visible={projectsVisible} />
+        <Projects visible={projectsVisible} darkMode={darkMode}  language={language}/>
       </section>
-
+ 
       {/* Skills Section */}
       <section ref={skillsRef} className={styles.skills}>
-        <h2 className={styles.heading}>Skills & Technologies</h2>
-        <div className={styles.skillsList}>
-          {skills.map((skill, idx) => (
-            <div key={idx} className={`${styles.category} ${skillsVisible ? styles.fadeSlide : ""} ${idx % 2 === 0 ? styles.fromLeft : styles.fromRight}`} style={{ transitionDelay: `${idx * 0.2}s` }}>
-              <h3>{skill.category}</h3>
-              <p>{skill.items.join(", ")}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+  <h2 className={styles.heading}>
+    {language === "en" ? "Skills & Technologies" : "Compétences & Technologies"}
+  </h2>
+  <div className={styles.skillsList}>
+    {skills.map((skill, idx) => (
+      <div
+        key={idx}
+        className={`${styles.category} ${skillsVisible ? styles.fadeSlide : ""} ${
+          idx % 2 === 0 ? styles.fromLeft : styles.fromRight
+        }`}
+        style={{ transitionDelay: `${idx * 0.2}s` }}
+      >
+        <h3>
+          {language === "en"
+            ? skill.category
+            : skill.categoryFR || skill.category} {/* categoryFR optional */}
+        </h3>
+        <p>{skill.items.join(", ")}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
 
       {/* Contact Section */}
       <section ref={contactRef} className={styles.contact}>
-        <h2 className={styles.heading}>Contact Me</h2>
-        <div className={styles.contactList}>
-          {[
-            { icon: <MdEmail />, text: "Personal: marmianfel@gmail.com", link: "mailto:soundousbensaad@gmail.com" },
-            { icon: <MdEmail />, text: "University: anfel.marmi@univ-constantine2.dz", link: "mailto:anfel.marmi@univ-constantine2.dz" },
-            { icon: <FaLinkedin />, text: "linkedin.com/in/marmianfelrihem", link: "https://www.linkedin.com/in/anfel-marmi-31ab713a3/" },
-            { icon: <FaInstagram />, text: "@anfelmar", link: "https://www.instagram.com/anfel mar" },
-            { icon: <FaFacebook />, text: "facebook.com/An Fel Mar", link: "https://facebook.com/An Fel Mar" },
-            { icon: <FaPhone />, text: "+213797601664", link: "tel:+213779313345" }
-          ].map((item, idx) => (
-            <p key={idx} className={`${styles.contactItem} ${contactVisible ? styles.fadeSlide : ""} ${idx % 2 === 0 ? styles.fromLeft : styles.fromRight}`} style={{ transitionDelay: `${idx * 0.2}s` }}>
-              {item.icon}
-              <a href={item.link} target="_blank" rel="noopener noreferrer">{item.text}</a>
-            </p>
-          ))}
-          <button
-  className={styles.sendBtn}
-  onClick={() => navigate("/Contact")}
->
-  Send Message
-</button>
+  <h2 className={styles.heading}>
+    {language === "en" ? "Contact Me" : "Contactez-moi"}
+  </h2>
+  <div className={styles.contactList}>
+    {[
+      { icon: <MdEmail />, text: language === "en" ? "Personal: marmianfel@gmail.com" : "Personnel : marmianfel@gmail.com", link: "mailto:marmianfel@gmail.com" },
+      { icon: <MdEmail />, text: language === "en" ? "University: anfel.marmi@univ-constantine2.dz" : "Université : anfel.marmi@univ-constantine2.dz", link: "mailto:anfel.marmi@univ-constantine2.dz" },
+      { icon: <FaLinkedin />, text: language === "en" ? "linkedin.com/in/marmianfelrihem" : "linkedin.com/in/marmianfelrihem", link: "https://www.linkedin.com/in/anfel-marmi-31ab713a3/" },
+      { icon: <FaInstagram />, text: language === "en" ? "@anfelmar" : "@anfelmar", link: "https://www.instagram.com/anfelmar" },
+      { icon: <FaFacebook />, text: language === "en" ? "facebook.com/An Fel Mar" : "facebook.com/An Fel Mar", link: "https://facebook.com/AnFelMar" },
+      { icon: <FaPhone />, text: language === "en" ? "+213797601664" : "+213797601664", link: "tel:+213797601664" }
+    ].map((item, idx) => (
+      <p key={idx} className={`${styles.contactItem} ${contactVisible ? styles.fadeSlide : ""} ${idx % 2 === 0 ? styles.fromLeft : styles.fromRight}`} style={{ transitionDelay: `${idx * 0.2}s` }}>
+        {item.icon}
+        <a href={item.link} target="_blank" rel="noopener noreferrer">{item.text}</a>
+      </p>
+    ))}
+    <button
+      className={styles.sendBtn}
+      onClick={() => scrollTo(contactRef)}
+    >
+      {language === "en" ? "Send Message" : "Envoyer un message"}
+    </button>
+  </div>
+</section>
 
-        </div>
-      </section>
     </div>
   );
 }

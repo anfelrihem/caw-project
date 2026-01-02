@@ -1,19 +1,121 @@
+/* ================= PROJECTS SECTION ================= */
 .projects {
   min-height: 100vh;
   padding: 50px 20px;
   background: #fff0f6; /* وردي فاتح */
+  border-radius: 20px;
+  max-width: 1000px;
+  margin: 40px auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  color: #d946ef; /* default text color */
 }
 
+.darkBackground {
+  background: linear-gradient(135deg, #020617, #0f172a); /* dark mode bg */
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.05);
+  color: #f9a8d4; /* text color in dark mode */
+}
+
+/* Heading */
 .heading {
   text-align: center;
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 40px;
-  color: #d946ef;
+  color: inherit; /* adapt color to dark/light mode */
 }
 
+/* Grid */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
+}
+
+/* ================= ANIMATION ================= */
+.fadeSlide {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.6s ease-out;
+}
+
+/* ================= CARDS INSIDE PROJECTS ================= */
+.card {
+  border: 1px solid #fbcfe8;
+  border-radius: 12px;
+  padding: 20px;
+  background: #fff0f6;
+  color: #d946ef;
+  box-shadow: 0 6px 15px rgba(244, 114, 182, 0.2);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+}
+
+.card.fadeSlide {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Dark mode cards */
+.card.dark {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  color: #f9a8d4;
+  box-shadow: 0 6px 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Card hover effect */
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(244, 114, 182, 0.35);
+}
+
+/* Card elements */
+.card h3 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: inherit; /* adapt color */
+}
+
+.card p {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: inherit; /* adapt color */
+}
+
+.card span {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 5px;
+  background: #f472b6;
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+/* Dark mode badges */
+.card.dark span {
+  background: #ec4899;
+  color: #fff;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .projects {
+    padding: 40px 15px;
+  }
+
+  .heading {
+    font-size: 1.8rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 15px;
+  }
 }

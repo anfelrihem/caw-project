@@ -81,3 +81,22 @@
   transform: translateY(-3px);
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
 }
+
+.sendBtn {
+  margin-top: 20px;
+  padding: 14px 36px;
+  border-radius: 30px; /* كبير ودوّار */
+  border: none;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(135deg, #f472b6, #8b5cf6); /* gradient rose → violet */
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.sendBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(244, 114, 182, 0.4);
+  background: linear-gradient(135deg, #ec4899, #9333ea); /* gradient hover */
+}
