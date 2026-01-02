@@ -72,7 +72,7 @@ function Projects({ visible, darkMode, language }) {
         fr: "Découvrez notre laboratoire équipé de technologies avancées pour des diagnostics précis",
       },
       tech: "Laravel, AI",
-      github: "http://127.0.0.1:8000/welcome",
+      github: "https://github.com/soundousbensaad/pfe_ASlab",
     },
   ];
 

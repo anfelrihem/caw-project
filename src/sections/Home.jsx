@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import styles from "./Home.module.css";
-import profilePic from "../assets/p.jpg";
+import profilePic from "../assets/profile.jpg";
 import { FaLinkedin, FaInstagram, FaFacebook, FaPhone } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import Projects from "./Projects"; 

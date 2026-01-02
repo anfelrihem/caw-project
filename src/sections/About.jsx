@@ -1,5 +1,5 @@
 import styles from "./About.module.css";
-import profilePic from "../assets/p.jpg";
+import profilePic from "../assets/profile.jpg";
 function About() {
   return (
     <section className={styles.about} id="about">
