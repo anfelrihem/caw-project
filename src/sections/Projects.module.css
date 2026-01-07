@@ -1,121 +1,397 @@
-/* ================= PROJECTS SECTION ================= */
+/* Projects.module.css - Version FINALE avec espace ajusté */
+
 .projects {
-  min-height: 100vh;
-  padding: 50px 20px;
-  background: #fff0f6; /* وردي فاتح */
-  border-radius: 20px;
-  max-width: 1000px;
-  margin: 40px auto;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  position: relative;
+  width: 100%;
+  min-height: 90vh;
+  padding: 10px 0;
   transition: all 0.3s ease;
-  color: #d946ef; /* default text color */
+  
+  /* Light mode default */
+  background: linear-gradient(135deg, #d8b4fe, #fbcfe8);;
+  color: #333;
+  
+  /* Coins arrondis pour la section */
+  border-radius: 10px;
+  margin: 8px;
 }
 
-.darkBackground {
-  background: linear-gradient(135deg, #020617, #0f172a); /* dark mode bg */
-  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.05);
-  color: #f9a8d4; /* text color in dark mode */
+/* Dark Mode */
+.projects.dark {
+ background: linear-gradient(145deg, #2d2d2d, #252525);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
+  color: #e2e8f0;
 }
 
-/* Heading */
+/* Container ajusté */
+.container {
+  max-width: 200px;
+  margin: 2 auto;
+  padding: 10px; /* Espace avec les bords */
+}
+
+/* En-tête */
+.projects-header {
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.projects.dark .projects-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
 .heading {
   text-align: center;
-  font-size: 2rem;
-  font-weight: bold;
+  
+   font-size: 2.5rem;
   margin-bottom: 40px;
-  color: inherit; /* adapt color to dark/light mode */
+  color: #7e22ce;
+  font-weight: 700;
+ 
+
+  padding: 0 10px;
+  
+  /* Light mode gradient */
+  background: linear-gradient(135deg, #be185d 0%, #9333ea 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* Grid */
+/* Dark mode heading */
+.projects.dark .heading {
+  background: linear-gradient(135deg, #f0abfc 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+   
+}
+
+.description {
+  text-align: center;
+  font-size: 1.25rem;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 2.5;
+  color: #680b70;
+  padding: 0 50px;
+}
+
+.projects.dark .description {
+  color: #edc5e1;
+}
+
+/* GRID avec espace entre cartes */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px; /* ESPACE entre cartes */
+  padding: 0;
 }
 
-/* ================= ANIMATION ================= */
-.fadeSlide {
-  opacity: 1;
-  transform: translateY(0);
+/* Carte avec largeur réduite */
+.project-card {
+  background: rgb(224, 179, 237);
+  border-radius: 8px;
+  padding: 15px; /* Espace interne */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: all 0.15s ease;
+  border: 1px solid rgba(252, 231, 243, 0.4);
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Espace entre éléments */
+  width: 100%; /* Prend toute la largeur disponible */
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Header de carte */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.card-number {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #9333ea;
+  padding: 3px 6px;
+  background: rgba(147, 51, 234, 0.08);
+  border-radius: 4px;
+  border: 1px solid rgba(147, 51, 234, 0.15);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.card-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #be185d;
+  line-height: 1.2;
+  flex-grow: 1;
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Dark mode card */
+.projects.dark .project-card {
+  background: linear-gradient(145deg, #1e293b, #0f172a);
+  border: 1px solid rgba(148, 163, 184, 0.08);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+}
+
+.projects.dark .project-card:hover {
+  border-color: rgba(168, 85, 247, 0.15);
+}
+
+.projects.dark .card-title {
+  color: #f0abfc;
+  background: linear-gradient(135deg, #f0abfc 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.projects.dark .card-number {
+  color: #d8b4fe;
+  background: rgba(168, 85, 247, 0.08);
+  border-color: rgba(168, 85, 247, 0.2);
+}
+
+/* Description de carte */
+.card-desc {
+  color: #6b7280;
+  font-size: 0.8rem;
+  line-height: 1.3;
+  margin: 0;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.projects.dark .card-desc {
+  color: #cbd5e1;
+}
+
+/* Technologies */
+.card-tech {
+  color: #9333ea;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin: 0;
+  padding: 4px 6px;
+  background: rgba(147, 51, 234, 0.05);
+  border-radius: 3px;
+  display: inline-block;
+  border: 1px solid rgba(147, 51, 234, 0.1);
+  align-self: flex-start;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.projects.dark .card-tech {
+  color: #d8b4fe;
+  background: rgba(168, 85, 247, 0.06);
+  border: 1px solid rgba(168, 85, 247, 0.1);
+}
+
+/* Liens */
+.card-links {
+  display: flex;
+  gap: 8px; /* Espace entre boutons */
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+.card-link {
+  padding: 5px 10px;
+  background: linear-gradient(135deg, #d946ef 0%, #be185d 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: all 0.1s ease;
+  text-align: center;
+  flex: 1;
+  min-width: 55px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.card-link:hover {
+  transform: translateY(-1px);
+}
+
+.projects.dark .card-link {
+   background: linear-gradient(145deg, #2d2d2d, #252525);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 800px;
+  }
+  
+  .grid {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 750px;
+  }
+  
+  .grid {
+    gap: 10px;
+  }
+  
+  .project-card {
+    padding: 12px;
+    min-height: 130px;
+  }
+}
+
+@media (max-width: 900px) {
+  .container {
+    max-width: 700px;
+  }
+  
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  
+  .project-card {
+    padding: 10px;
+    min-height: 120px;
+    gap: 6px;
+  }
+  
+  .card-title {
+    font-size: 0.9rem;
+  }
+  
+  .card-desc {
+    font-size: 0.75rem;
+  }
+}
+
+/* À partir de 768px, on passe à 2 cartes */
+@media (max-width: 768px) {
+  .container {
+    max-width: 600px;
+  }
+  
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .projects {
+    padding: 8px 0;
+  }
+  
+  .project-card {
+    padding: 12px;
+    min-height: 130px;
+  }
+}
+
+/* Mobile - 1 carte par ligne */
+@media (max-width: 600px) {
+  .container {
+    max-width: 100%;
+    padding: 0 12px; /* Espace avec bords */
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  
+  .projects {
+    padding: 6px 0;
+  }
+  
+  .project-card {
+    padding: 15px;
+    min-height: 120px;
+    gap: 8px;
+  }
+  
+  .card-title {
+    font-size: 0.9rem;
+    white-space: normal;
+  }
+}
+
+/* Très petits écrans */
+@media (max-width: 400px) {
+  .container {
+    padding: 0 10px;
+  }
+  
+  .project-card {
+    padding: 12px;
+  }
+}
+/* ===== Initial state ===== */
+.card {
+  opacity: 0; /* invisible au départ */
   transition: all 0.6s ease-out;
 }
 
-/* ================= CARDS INSIDE PROJECTS ================= */
-.card {
-  border: 1px solid #fbcfe8;
-  border-radius: 12px;
-  padding: 20px;
-  background: #fff0f6;
-  color: #d946ef;
-  box-shadow: 0 6px 15px rgba(244, 114, 182, 0.2);
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.4s ease;
+/* Slide depuis la gauche */
+.card.fromLeft {
+  transform: translateX(-50px);
 }
 
+/* Slide depuis la droite */
+.card.fromRight {
+  transform: translateX(50px);
+}
+
+/* Quand visible */
 .card.fadeSlide {
+  transform: translateX(0);
   opacity: 1;
-  transform: translateY(0);
 }
 
-/* Dark mode cards */
+/* Dark mode support */
 .card.dark {
-  background: #0f172a;
-  border: 1px solid #1e293b;
-  color: #f9a8d4;
-  box-shadow: 0 6px 15px rgba(255, 255, 255, 0.1);
+  background: linear-gradient(145deg, #2d2d2d, #252525);
+  border: 1px solid rgba(148, 163, 184, 0.08);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  opacity: 0;
 }
 
-/* Card hover effect */
-.card:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 10px 25px rgba(244, 114, 182, 0.35);
+.card.dark.fromLeft {
+  transform: translateX(-50px);
 }
 
-/* Card elements */
-.card h3 {
-  font-size: 1.3rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: inherit; /* adapt color */
+.card.dark.fromRight {
+  transform: translateX(50px);
 }
 
-.card p {
-  font-size: 1rem;
-  margin-bottom: 8px;
-  color: inherit; /* adapt color */
-}
-
-.card span {
-  display: inline-block;
-  padding: 4px 8px;
-  border-radius: 5px;
-  background: #f472b6;
-  color: #fff;
-  font-size: 0.85rem;
-}
-
-/* Dark mode badges */
-.card.dark span {
-  background: #ec4899;
-  color: #fff;
-}
-
-/* ================= RESPONSIVE ================= */
-@media (max-width: 768px) {
-  .projects {
-    padding: 40px 15px;
-  }
-
-  .heading {
-    font-size: 1.8rem;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .card {
-    padding: 15px;
-  }
+.card.dark.fadeSlide {
+  transform: translateX(0);
+  opacity: 1;
 }

@@ -246,7 +246,7 @@
   justify-content: center;
   text-align: center;
   padding: 40px 20px;
-  background: #ffe4e6;
+  background: linear-gradient(135deg, #d8b4fe, #fbcfe8);
   border-radius: 20px;
   max-width: 900px;
   margin: 40px auto;
@@ -255,7 +255,11 @@
   transform: translateY(30px);
   transition: all 0.6s ease-out;
 }
-
+body {
+  background: #f3d2f3;
+  color: #1e293b;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 .home.fadeSlide {
   opacity: 1;
   transform: translateY(0);
